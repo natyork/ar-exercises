@@ -12,5 +12,9 @@ puts "Please enter a new store name:"
 print "> "
 new_store_name = gets.chomp
 
-@store7 = Store.create(name: new_store_name, annual_revenue: 100, mens_apparel: true, womens_apparel: false)
-pp @store7.errors.messages
+@store7 = Store.create(name: new_store_name)#, annual_revenue: 100, mens_apparel: true, womens_apparel: false)
+messages = @store7.errors.full_messages
+
+messages.each do |error|
+  puts "Error! #{error}"
+end
